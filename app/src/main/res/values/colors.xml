@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#E8F5E9</color>
+    <color name="colorPanelBackground">#E2FAF7</color>
+    <color name="pro">#FBC02D</color>
+    <color name="ic_launcher_background">#78E3E3</color>
+    <color name="green_600">#43A047</color>
+    <color name="green_900">#1B5E20</color>
+    <color name="green_a200">#69F0AE</color>
+    <color name="red_600">#E53935</color>
+    <color name="red_900">#B71C1C</color>
+    <color name="red_a200">#FF5252</color>
+    <color name="purple_600">#8E24AA</color>
+    <color name="purple_900">#4A148C</color>
+    <color name="purple_a200">#E040FB</color>
+    <color name="amber_600">#FFB300</color>
+    <color name="amber_900">#FF6F00</color>
+    <color name="amber_a200">#FFD740</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="blue_900">#0D47A1</color>
+    <color name="blue_a200">#448AFF</color>
+    <color name="cyan_600">#00ACC1</color>
+    <color name="cyan_900">#006064</color>
+    <color name="cyan_a200">#18FFFF</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey_900">#212121</color>
+</resources>

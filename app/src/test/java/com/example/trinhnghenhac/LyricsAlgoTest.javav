@@ -1,0 +1,48 @@
+package com.example.trinhnghenhac;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+
+import androidx.core.util.Pair;
+
+import com.example.trinhnghenhac.models.Lyrics;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class LyricsAlgoTest {
+    private Pair<Integer, Integer> getIndexOfWordInSentence(List<Lyrics.Word> words, int wordIndex) {
+        int startIndex = 0;
+        int endIndex = 0;
+        int i;
+        for (i = 0; i <= wordIndex; i++) {
+            if (i != 0) {
+                startIndex += words.get(i - 1).getText().length() + 1;
+                endIndex++;
+            }
+            endIndex += words.get(i).getText().length();
+        }
+        return new Pair<>(startIndex, endIndex);
+    }
+
+    @Test
+    public void getIndexOfWordInSentence() {
+        List<Lyrics.Word> words = new ArrayList<>();
+        words.add(new Lyrics.Word("qadfasf", 0, 5));
+        words.add(new Lyrics.Word("bbcd", 0, 5));
+        words.add(new Lyrics.Word("cc", 0, 5));
+        Pair<Integer, Integer> pair1 = getIndexOfWordInSentence(words, 0);
+        assertThat(pair1.first, equalTo(0));
+        assertThat(pair1.second, equalTo(7));
+        Pair<Integer, Integer> pair2 = getIndexOfWordInSentence(words, 1);
+        assertThat(pair2.first, equalTo(8));
+        assertThat(pair2.second, equalTo(12));
+        Pair<Integer, Integer> pair3 = getIndexOfWordInSentence(words, 2);
+        assertThat(pair3.first, equalTo(13));
+        assertThat(pair3.second, equalTo(15));
+    }
+}

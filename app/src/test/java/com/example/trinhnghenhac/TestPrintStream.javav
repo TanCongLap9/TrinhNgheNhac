@@ -1,0 +1,160 @@
+package com.example.trinhnghenhac;
+
+import android.database.Cursor;
+
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+
+/**
+ * A {@link PrintStream} that prepends the supplied class along with the current executing method
+ * of that class and deserializes {@link Object} into JSON in the output, for testing purpose.
+ */
+public class TestPrintStream extends PrintStream {
+    private Class<?> class$;
+    private Gson gson;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
+    public TestPrintStream(Class<?> class$) {
+        super(System.out);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, OutputStream out) {
+        super(out);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, OutputStream out, boolean autoFlush) {
+        super(out, autoFlush);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, OutputStream out, boolean autoFlush, String encoding) throws UnsupportedEncodingException {
+        super(out, autoFlush, encoding);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, String fileName) throws FileNotFoundException {
+        super(fileName);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, String fileName, String csn) throws FileNotFoundException, UnsupportedEncodingException {
+        super(fileName, csn);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, File file) throws FileNotFoundException {
+        super(file);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public TestPrintStream(Class<?> class$, File file, String csn) throws FileNotFoundException, UnsupportedEncodingException {
+        super(file, csn);
+        this.class$ = class$;
+        gson = new Gson();
+    }
+
+    public void printCurrentMethod() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (int i = stackTrace.length - 1; i >= 0; i--) {
+            StackTraceElement stackTraceElement = stackTrace[i];
+            if (stackTraceElement.getClassName().equals(class$.getName())) {
+                print("[" + ANSI_GREEN + class$.getSimpleName() + ANSI_RESET + "] " + ANSI_CYAN + stackTraceElement.getMethodName() + ANSI_RESET + "(): ");
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void println(boolean x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(char x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(int x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(long x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(float x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(double x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(char[] x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(String x) {
+        printCurrentMethod();
+        super.println(x);
+    }
+
+    @Override
+    public void println(Object x) {
+        printCurrentMethod();
+        super.println(gson.toJson(x));
+    }
+
+    public void println(Cursor c) {
+        int oldPosition = c.getPosition();
+        printCurrentMethod();
+        if (!c.isClosed()) {
+            c.moveToFirst();
+            if (c.getColumnCount() == 2)
+                for (int i = 0; i < c.getCount(); i++) {
+                    print((i != 0 ? ", " : "") + c.getString(1));
+                    c.moveToNext();
+                }
+            else if (c.getColumnCount() == 1) print(ANSI_YELLOW + "Cannot print the cursor as it only contains _ID column." + ANSI_RESET);
+            else print(ANSI_YELLOW + "Cannot print the cursor as it contains multiple columns." + ANSI_RESET);
+            c.move(oldPosition);
+        }
+        else print(ANSI_YELLOW + "Cannot print the cursor as it's closed." + ANSI_RESET);
+        println();
+    }
+}

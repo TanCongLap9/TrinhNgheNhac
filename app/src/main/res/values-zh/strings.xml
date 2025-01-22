@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">音乐播放软件</string>
+    <string name="title_explore">探索</string>
+    <string name="title_library">图书馆</string>
+    <string name="info_name">姓名</string>
+    <string name="info_email">E-mail 的地址</string>
+    <string name="info_birth">生日</string>
+    <string name="info_account">帐户</string>
+    <string name="info_phone">电话号码</string>
+    <string name="info_password">密码</string>
+    <string name="info_confirm_password">确认密码</string>
+    <string name="sign_in">登入</string>
+    <string name="sign_up">登記</string>
+    <string name="register_i_agree">同意<b>我的公司</b>的<u>政策和条件</u></string>
+    <string name="dialog_yes">是的</string>
+    <string name="dialog_no">不</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_retry">重试</string>
+    <string name="dialog_ignore">I忽略</string>
+    <string name="media_player_now_playing">正在播放</string>
+    <string name="media_player_play">播放</string>
+    <string name="media_player_pause">暂停</string>
+    <string name="media_player_stop">停止</string>
+    <string name="media_player_repeat">重复</string>
+    <string name="media_player_previous">上一歌曲</string>
+    <string name="media_player_next">下一歌曲</string>
+    <string name="media_player_shuffle">随机播放</string>
+    <string name="media_player_lyrics">歌词</string>
+    <string name="music_player">音乐播放软件</string>
+    <string name="setting_language">语言</string>
+    <string name="setting_language_default">默认语言</string>
+</resources>

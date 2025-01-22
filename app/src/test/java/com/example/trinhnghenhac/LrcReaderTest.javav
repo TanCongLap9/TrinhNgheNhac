@@ -1,0 +1,41 @@
+package com.example.trinhnghenhac;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+import com.example.trinhnghenhac.constants.LyricsType;
+import com.example.trinhnghenhac.models.Lyrics;
+import com.example.trinhnghenhac.readers.LrcReader;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+public class LrcReaderTest {
+    private LrcReader reader;
+    private TestPrintStream out;
+
+    @Before
+    public void init() {
+        try {
+            out = new TestPrintStream(LrcReaderTest.class);
+            reader = new LrcReader(new URL("https://static-zmp3.zmdcdn.me/lyrics/e/7/9/6/e7967ba566fe70c809a0b522b6c44db9.lrc"));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    public void readLrc_isSentenceType() {
+        Lyrics model = reader.read();
+        assertNotNull(model);
+        assertEquals(model.getType(), LyricsType.LYRIC_TYPE_SENTENCES);
+        out.println(model);
+    }
+}

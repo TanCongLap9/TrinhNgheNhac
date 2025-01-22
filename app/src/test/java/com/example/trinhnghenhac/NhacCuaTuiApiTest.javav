@@ -1,0 +1,143 @@
+package com.example.trinhnghenhac;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
+import static org.junit.Assert.assertThat;
+
+import android.database.Cursor;
+import android.provider.BaseColumns;
+
+import com.example.trinhnghenhac.api.MusicPlatformApi;
+import com.example.trinhnghenhac.api.nhaccuatui.NhacCuaTuiApi;
+import com.example.trinhnghenhac.constants.MusicCategory;
+import com.example.trinhnghenhac.models.Artist;
+import com.example.trinhnghenhac.models.Lyrics;
+import com.example.trinhnghenhac.models.Playable;
+import com.example.trinhnghenhac.models.Playlist;
+import com.example.trinhnghenhac.models.SearchResults;
+import com.example.trinhnghenhac.models.Song;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import java.io.IOException;
+import java.util.List;
+
+@RunWith(RobolectricTestRunner.class)
+public class NhacCuaTuiApiTest {
+    private MusicPlatformApi nhacCuaTuiApi;
+    private TestPrintStream out;
+
+    @Before
+    public void init() {
+        nhacCuaTuiApi = NhacCuaTuiApi.getInstance();
+        out = new TestPrintStream(NhacCuaTuiApiTest.class);
+    }
+
+    @Test
+    public void getPlaylist() throws IOException {
+        Playlist model = nhacCuaTuiApi.getPlaylistInfo("uBwEwbqakP9e");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getSongInfo() throws IOException {
+        Song model = nhacCuaTuiApi.getSongInfo("vtEybe9NxLw7");
+        assertThat(model, notNullValue());
+        out.println(model);
+
+        Song model2 = nhacCuaTuiApi.getSongInfo("bwlP9Ip3Uzc8");
+        assertThat(model2, notNullValue());
+        out.println(model2);
+
+        Song model3 = nhacCuaTuiApi.getSongInfo("8uPdufDbpDRT");
+        assertThat(model3, notNullValue());
+        out.println(model3);
+    }
+
+    @Test
+    public void getMediaUrl() throws IOException {
+        String mediaUrl = nhacCuaTuiApi.getMediaUrl("vtEybe9NxLw7");
+        assertThat(mediaUrl, notNullValue());
+        out.println(mediaUrl);
+
+        String model2 = nhacCuaTuiApi.getMediaUrl("bwlP9Ip3Uzc8");
+        assertThat(model2, notNullValue());
+        out.println(model2);
+
+        String model3 = nhacCuaTuiApi.getMediaUrl("8uPdufDbpDRT");
+        assertThat(model3, nullValue());
+        out.println(model3);
+    }
+
+    @Test
+    public void getArtist() throws IOException {
+        Artist model = nhacCuaTuiApi.getArtistInfo("son-tung-mtp");
+        assertThat(model, notNullValue());
+        assertThat(model.getPlaylists(), notNullValue());
+        assertThat(model.getPlaylists(), not(empty()));
+        assertThat(model.getVideos(), notNullValue());
+        assertThat(model.getVideos(), not(empty()));
+        out.println(model);
+    }
+
+    @Test
+    public void getLyrics() throws IOException {
+        Lyrics lyrics1 = nhacCuaTuiApi.getLyrics("vtEybe9NxLw7");
+        assertThat(lyrics1, notNullValue());
+        out.println(lyrics1);
+
+        Lyrics lyrics2 = nhacCuaTuiApi.getLyrics("bwlP9Ip3Uzc8");
+        assertThat(lyrics2, notNullValue());
+        out.println(lyrics2);
+    }
+
+    @Test
+    public void getPlayablesByCategory() throws IOException {
+        List<Playable> playables1 = nhacCuaTuiApi.getPlayablesByCategory(MusicCategory.CATEGORY_ACOUSTIC);
+        assertThat(playables1, notNullValue());
+        out.println(playables1);
+
+        List<Playable> playables2 = nhacCuaTuiApi.getPlayablesByCategory(MusicCategory.CATEGORY_NEW_RELEASES);
+        assertThat(playables2, notNullValue());
+        out.println(playables2);
+    }
+
+    @Test
+    public void getSearchHints() throws IOException {
+        Cursor c = nhacCuaTuiApi.getSearchHints("sơn tùng");
+        assertThat(c, notNullValue());
+        assertThat(c.getColumnCount(), equalTo(2));
+        assertThat(c.getColumnName(0), equalTo(BaseColumns._ID));
+        assertThat(c.getColumnName(1), equalTo(MusicPlatformApi.SEARCH_COLUMN_NAME));
+        for (int i = 0; i < c.getCount(); i++) {
+            c.moveToNext();
+            assertThat(c.getInt(0), equalTo(i));
+            assertThat(c.getString(1), notNullValue());
+        }
+        out.println(c);
+        c.close();
+    }
+
+    @Test
+    public void getSearchResults() throws IOException {
+        SearchResults search = nhacCuaTuiApi.getSearchResults("sơn tùng");
+        assertThat(search, notNullValue());
+        assertThat(search.getArtists(), not(hasItem(nullValue())));
+        assertThat(search.getPlaylists(), not(empty()));
+        assertThat(search.getPlaylists(), not(hasItem(nullValue())));
+        assertThat(search.getSongs(), not(empty()));
+        assertThat(search.getSongs(), not(hasItem(nullValue())));
+        // assertThat(search.getVideos(), not(empty()));
+        assertThat(search.getVideos(), not(hasItem(nullValue())));
+        assertThat(search.getOrder().length, equalTo(4));
+        out.println(search);
+    }
+}

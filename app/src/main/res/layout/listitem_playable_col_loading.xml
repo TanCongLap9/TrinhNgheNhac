@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/playable_col_margin_end"
+    android:background="@drawable/corner_8dp"
+    android:backgroundTint="?android:colorBackground"
+    android:clickable="true"
+    android:elevation="@dimen/card_col_shadow"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/playable_col_padding">
+
+    <View
+        android:id="@+id/listitem_playable_col_card"
+        android:layout_width="@dimen/playable_col_image_size"
+        android:layout_height="@dimen/playable_col_image_size"
+        android:layout_marginBottom="@dimen/playable_col_card_margin_bottom"
+        android:background="@drawable/corner_8dp"
+        android:backgroundTint="?attr/colorButtonNormal" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_playable_col_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/playable_col_title_margin_bottom"
+        android:background="?attr/colorButtonNormal"
+        android:ellipsize="end"
+        android:lines="1"
+        android:scrollHorizontally="true"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_playable_col_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorButtonNormal"
+        android:ellipsize="end"
+        android:lines="1"
+        android:scrollHorizontally="true"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+</LinearLayout>

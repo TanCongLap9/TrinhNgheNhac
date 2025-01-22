@@ -1,0 +1,58 @@
+<resources>
+    <style name="AppThemeGreen" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/green_600</item>
+        <item name="colorPrimaryDark">@color/green_900</item>
+        <item name="colorAccent">@color/red_a200</item>
+    </style>
+
+    <style name="AppThemeAmber" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/amber_600</item>
+        <item name="colorPrimaryDark">@color/amber_900</item>
+        <item name="colorAccent">@color/blue_a200</item>
+    </style>
+
+    <style name="AppThemeBlue" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/blue_600</item>
+        <item name="colorPrimaryDark">@color/blue_900</item>
+        <item name="colorAccent">@color/amber_a200</item>
+    </style>
+
+    <style name="AppThemePurple" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/purple_600</item>
+        <item name="colorPrimaryDark">@color/purple_900</item>
+        <item name="colorAccent">@color/green_a200</item>
+    </style>
+
+    <style name="AppThemeRed" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/red_600</item>
+        <item name="colorPrimaryDark">@color/red_900</item>
+        <item name="colorAccent">@color/cyan_a200</item>
+    </style>
+
+    <style name="AppThemeCyan" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/cyan_600</item>
+        <item name="colorPrimaryDark">@color/cyan_900</item>
+        <item name="colorAccent">@color/red_a200</item>
+    </style>
+
+    <style name="AppThemeGrey" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/grey_200</item>
+        <item name="colorPrimaryDark">@color/grey_500</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="RoundedImageView8dp">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="RoundedImageView20dp">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="RoundedImageView50">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

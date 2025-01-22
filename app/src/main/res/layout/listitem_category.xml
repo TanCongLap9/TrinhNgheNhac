@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_margin="4dp"
+    android:elevation="@dimen/card_col_shadow"
+    android:foreground="?attr/selectableItemBackground">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/listitem_category_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/RoundedImageView20dp"
+        tools:src="@drawable/music_category_europe" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_category_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/corner_20dp"
+        android:backgroundTint="?android:colorBackground"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        tools:text="Nhạc Việt" />
+</FrameLayout>

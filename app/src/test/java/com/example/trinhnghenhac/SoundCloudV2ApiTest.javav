@@ -1,0 +1,105 @@
+package com.example.trinhnghenhac;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
+import static org.junit.Assert.assertThat;
+
+import android.database.Cursor;
+import android.provider.BaseColumns;
+
+import com.example.trinhnghenhac.api.MusicPlatformApi;
+import com.example.trinhnghenhac.api.soundcloudv2.SoundCloudV2Api;
+import com.example.trinhnghenhac.models.Artist;
+import com.example.trinhnghenhac.models.Lyrics;
+import com.example.trinhnghenhac.models.Playlist;
+import com.example.trinhnghenhac.models.SearchResults;
+import com.example.trinhnghenhac.models.Song;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import java.io.IOException;
+
+@RunWith(RobolectricTestRunner.class)
+public class SoundCloudV2ApiTest {
+    private MusicPlatformApi soundCloudV2Api;
+    private TestPrintStream out;
+
+    @Before
+    public void init() {
+        soundCloudV2Api = SoundCloudV2Api.getInstance();
+        out = new TestPrintStream(SoundCloudV2ApiTest.class);
+    }
+
+    @Test
+    public void getPlaylist() throws IOException {
+        Playlist model = soundCloudV2Api.getPlaylistInfo("1887870752");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getSongInfo() throws IOException {
+        Song model = soundCloudV2Api.getSongInfo("1081596580");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getMediaUrl() throws IOException {
+        String mediaUrl = soundCloudV2Api.getMediaUrl("1081596580");
+        assertThat(mediaUrl, notNullValue());
+        out.println(mediaUrl);
+    }
+
+    @Test
+    public void getArtist() throws IOException {
+        Artist model = soundCloudV2Api.getArtistInfo("1090976224");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getLyrics() throws IOException {
+        Lyrics lyrics = soundCloudV2Api.getLyrics("");
+        assertThat(lyrics, nullValue());
+        out.println(lyrics);
+    }
+
+    @Test
+    public void getSearchHints() throws IOException {
+        Cursor c = soundCloudV2Api.getSearchHints("vó ngựa");
+        assertThat(c, notNullValue());
+        assertThat(c.getColumnCount(), equalTo(2));
+        assertThat(c.getColumnName(0), equalTo(BaseColumns._ID));
+        assertThat(c.getColumnName(1), equalTo(MusicPlatformApi.SEARCH_COLUMN_NAME));
+        for (int i = 0; i < c.getCount(); i++) {
+            c.moveToNext();
+            assertThat(c.getInt(0), equalTo(i));
+            assertThat(c.getString(1), notNullValue());
+        }
+        out.println(c);
+        c.close();
+        assertThat(c, notNullValue());
+    }
+
+    @Test
+    public void getSearchResults() throws IOException {
+        SearchResults search = soundCloudV2Api.getSearchResults("vó ngựa trên đồi cỏ non");
+        assertThat(search, notNullValue());
+        // assertThat(search.getArtists(), not(empty()));
+        assertThat(search.getArtists(), not(hasItem(nullValue())));
+        assertThat(search.getPlaylists(), not(empty()));
+        assertThat(search.getPlaylists(), not(hasItem(nullValue())));
+        assertThat(search.getSongs(), not(empty()));
+        assertThat(search.getSongs(), not(hasItem(nullValue())));
+        assertThat(search.getOrder().length, equalTo(4));
+        out.println(search);
+    }
+}

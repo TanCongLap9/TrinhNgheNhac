@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner_8dp"
+    android:backgroundTint="@color/colorPrimaryLight"
+    android:clickable="true"
+    android:elevation="@dimen/card_col_shadow"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/playable_col_padding">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/listitem_playable_col_show_all_image"
+        android:layout_width="@dimen/playable_col_image_size"
+        android:layout_height="@dimen/playable_col_image_size"
+        android:layout_marginBottom="@dimen/playable_col_card_margin_bottom"
+        android:background="@color/white"
+        app:contentPadding="16dp"
+        app:shapeAppearanceOverlay="@style/RoundedImageView8dp"
+        app:srcCompat="@drawable/round_navigate_next_24" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_playable_col_show_all_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/playable_col_title_margin_bottom"
+        android:ellipsize="end"
+        android:lines="1"
+        android:scrollHorizontally="true"
+        android:text="@string/item_show_all"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_playable_col_show_all_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:scrollHorizontally="true"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+</LinearLayout>

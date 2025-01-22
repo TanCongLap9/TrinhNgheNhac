@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="listitem_playable_col_loading_swipe_duration">1250</integer>
+    <integer name="listitem_playable_row_loading_swipe_duration">2000</integer>
+    <integer name="shimmer_duration">3000</integer>
+</resources>

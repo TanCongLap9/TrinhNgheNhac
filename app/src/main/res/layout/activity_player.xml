@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.player.PlayerActivity">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_rose_petals" />
+    
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/activity_player_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_900"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/activity_player_time_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_seeker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_seeker"
+            android:text="--:--" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/activity_player_time_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_seeker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_seeker"
+            android:text="--:--" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/activity_player_seeker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:labelBehavior="gone"
+            app:layout_constraintBottom_toTopOf="@+id/activity_player_play_pause"
+            app:layout_constraintEnd_toStartOf="@+id/activity_player_time_max"
+            app:layout_constraintStart_toEndOf="@+id/activity_player_time_now" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_play_pause"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/player_button_large_size"
+            android:layout_height="@dimen/player_button_large_size"
+            android:layout_marginHorizontal="18dp"
+            app:icon="@drawable/round_pause_circle_outline_24"
+            app:iconGravity="textStart"
+            app:iconSize="48dp"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_player_seeker"
+            app:rippleColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_previous"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/player_button_small_size"
+            android:layout_height="@dimen/player_button_small_size"
+            android:layout_marginHorizontal="18dp"
+            app:icon="@drawable/ic_round_skip_previous_24"
+            app:iconGravity="textStart"
+            app:iconSize="32dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_play_pause"
+            app:layout_constraintEnd_toStartOf="@+id/activity_player_play_pause"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_play_pause"
+            app:rippleColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_next"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/player_button_small_size"
+            android:layout_height="@dimen/player_button_small_size"
+            android:layout_marginHorizontal="18dp"
+            app:icon="@drawable/ic_round_skip_next_24"
+            app:iconGravity="textStart"
+            app:iconSize="32dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_play_pause"
+            app:layout_constraintStart_toEndOf="@+id/activity_player_play_pause"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_play_pause"
+            app:rippleColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_repeat"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/player_button_small_size"
+            android:layout_height="@dimen/player_button_small_size"
+            android:layout_marginHorizontal="18dp"
+            app:icon="@drawable/ic_round_repeat_24"
+            app:iconGravity="textStart"
+            app:iconSize="32dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_play_pause"
+            app:layout_constraintStart_toEndOf="@+id/activity_player_next"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_play_pause"
+            app:rippleColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_stop"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/player_button_small_size"
+            android:layout_height="@dimen/player_button_small_size"
+            android:layout_marginHorizontal="18dp"
+            app:icon="@drawable/ic_round_stop_24"
+            app:iconGravity="textStart"
+            app:iconSize="32dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_play_pause"
+            app:layout_constraintEnd_toStartOf="@+id/activity_player_previous"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_play_pause"
+            app:rippleColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_player_lyric"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:icon="@drawable/round_lyrics_24"
+            app:iconGravity="textStart"
+            app:iconSize="24dp"
+            app:iconTint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_player_play_pause"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_player_play_pause" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

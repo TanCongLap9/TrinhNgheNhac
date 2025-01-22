@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927369597878",
+    "project_id": "trinhnghenhaccuatoi",
+    "storage_bucket": "trinhnghenhaccuatoi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927369597878:android:e78dce8fcc08f413dc2717",
+        "android_client_info": {
+          "package_name": "com.example.trinhnghenhac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw6zDY4FBrLxZtqGJr5-jpPeUZO0illKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

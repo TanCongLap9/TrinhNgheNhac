@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.playlist.PlaylistFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_playlist_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:paddingStart="@dimen/padding_horizontal_indented"
+        android:paddingEnd="@dimen/padding_horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/fragment_playlist_image"
+            android:layout_width="@dimen/artist_avatar_size"
+            android:layout_height="@dimen/artist_avatar_size"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedImageView8dp"
+            tools:src="@drawable/bg_space" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_playlist_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/fragment_playlist_text"
+            app:layout_constraintStart_toEndOf="@id/fragment_playlist_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_playlist_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fragment_playlist_image"
+            app:layout_constraintTop_toBottomOf="@id/fragment_playlist_title"
+            tools:text="@string/type_playlist" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/fragment_playlist_platform"
+            android:layout_width="@dimen/platform_icon_size"
+            android:layout_height="@dimen/platform_icon_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedImageView8dp"
+            tools:src="@drawable/logo_nhaccuatui" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/fragment_playlist_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerColor="?attr/colorButtonNormal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_playlist_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/padding_horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/listitem_playable_row" />
+</LinearLayout>

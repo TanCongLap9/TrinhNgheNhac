@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/playable_col_margin_end"
+    android:background="@drawable/corner_8dp"
+    android:backgroundTint="@color/colorPrimaryLight"
+    android:clickable="true"
+    android:elevation="@dimen/card_col_shadow"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/playable_col_padding">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/playable_col_card_margin_bottom">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/listitem_playable_col_image"
+            android:layout_width="@dimen/playable_col_image_size"
+            android:layout_height="@dimen/playable_col_image_size"
+            android:scaleType="center"
+            app:shapeAppearanceOverlay="@style/RoundedImageView8dp"
+            tools:src="@drawable/bg_space" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="@dimen/playable_corner_margin"
+            android:layout_marginEnd="@dimen/playable_corner_margin"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/listitem_playable_col_platform"
+                android:layout_width="@dimen/platform_icon_size_small"
+                android:layout_height="@dimen/platform_icon_size_small"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/RoundedImageView8dp"
+                tools:src="@drawable/logo_nhaccuatui" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/listitem_playable_col_type"
+                android:layout_width="@dimen/platform_icon_size_small"
+                android:layout_height="@dimen/platform_icon_size_small"
+                android:background="#80000000"
+                app:contentPadding="@dimen/playable_type_padding"
+                app:shapeAppearanceOverlay="@style/RoundedImageView50"
+                app:tint="#ffffff"
+                tools:src="@drawable/round_music_note_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/playable_corner_margin"
+            android:layout_marginBottom="@dimen/playable_corner_margin"
+            android:background="@drawable/corner_8dp"
+            android:backgroundTint="@color/grey_200"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/listitem_playable_col_star"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/platform_icon_size_small"
+                android:layout_height="@dimen/platform_icon_size_small"
+                app:icon="@drawable/round_star_border_24"
+                app:iconGravity="textStart"
+                app:iconSize="24dp"
+                app:iconTint="#FFC107" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/listitem_playable_col_add_saved"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/platform_icon_size_small"
+                android:layout_height="@dimen/platform_icon_size_small"
+                app:icon="@drawable/round_playlist_add_24"
+                app:iconGravity="textStart"
+                app:iconTint="?attr/colorControlNormal" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/playable_col_title_margin_bottom"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/listitem_playable_col_pro"
+            android:layout_width="@dimen/pro_icon_size"
+            android:layout_height="@dimen/pro_icon_size"
+            android:layout_marginEnd="@dimen/playable_col_pro_margin_end"
+            app:srcCompat="@drawable/round_local_police_24"
+            app:tint="@color/pro" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/listitem_playable_col_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:scrollHorizontally="true"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            tools:text="Title" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listitem_playable_col_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:scrollHorizontally="true"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        tools:text="Text" />
+</LinearLayout>

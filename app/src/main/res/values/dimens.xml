@@ -1,0 +1,39 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="pro_icon_size">16dp</dimen>
+    <dimen name="category_corner_radius">26dp</dimen>
+    <dimen name="padding_horizontal_indented">24dp</dimen>
+    <dimen name="padding_horizontal">16dp</dimen>
+    <dimen name="padding_vertical">8dp</dimen>
+    <dimen name="platform_icon_size">32dp</dimen>
+    <dimen name="platform_icon_size_small">26dp</dimen>
+    <dimen name="artist_avatar_size">64dp</dimen>
+    <dimen name="playable_type_corner_radius">12dp</dimen>
+    <dimen name="playable_type_padding">4dp</dimen>
+    <dimen name="playable_corner_margin">4dp</dimen>
+    <dimen name="playable_row_image_size">72dp</dimen>
+    <dimen name="playable_col_image_size">128dp</dimen>
+    <dimen name="playable_row_margin_bottom">4dp</dimen>
+    <dimen name="playable_col_margin_end">8dp</dimen>
+    <dimen name="playable_row_padding">8dp</dimen>
+    <dimen name="playable_col_padding">8dp</dimen>
+    <dimen name="playable_col_card_margin_bottom">4dp</dimen>
+    <dimen name="playable_row_title_margin_bottom">4dp</dimen>
+    <dimen name="playable_col_title_margin_bottom">2dp</dimen>
+    <dimen name="playable_row_image_margin_end">8dp</dimen>
+    <dimen name="playable_row_pro_margin_end">4dp</dimen>
+    <dimen name="card_col_shadow">4dp</dimen>
+    <dimen name="card_row_shadow">2dp</dimen>
+    <dimen name="playable_col_pro_margin_end">4dp</dimen>
+    <dimen name="setting_padding_horizontal">12dp</dimen>
+    <dimen name="setting_padding_vertical">8dp</dimen>
+    <dimen name="setting_margin_bottom">4dp</dimen>
+    <dimen name="title_medium_margin_bottom">8dp</dimen>
+    <dimen name="player_button_small_size">36dp</dimen>
+    <dimen name="player_button_large_size">56dp</dimen>
+</resources>

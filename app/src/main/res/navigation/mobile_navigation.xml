@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_explore">
+    <fragment
+        android:id="@+id/navigation_explore"
+        android:name="com.example.trinhnghenhac.ui.explore.ExploreFragment"
+        android:label="@string/title_explore"
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/action_search"
+            app:destination="@id/navigation_search_results" />
+        <action
+            android:id="@+id/action_view_category_from_explore"
+            app:destination="@id/navigation_category" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.example.trinhnghenhac.ui.categories.CategoriesFragment"
+        android:label="@string/title_categories"
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_view_category_from_categories"
+            app:destination="@id/navigation_category" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.example.trinhnghenhac.ui.library.LibraryFragment"
+        android:label="@string/title_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/navigation_search_results"
+        android:name="com.example.trinhnghenhac.ui.searchresults.SearchResultsFragment"
+        android:label="@string/search_results"
+        tools:layout="@layout/fragment_search_results" />
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.example.trinhnghenhac.ui.category.CategoryFragment"
+        android:label="@string/type_category"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/navigation_artist"
+        android:name="com.example.trinhnghenhac.ui.artist.ArtistFragment"
+        android:label="@string/type_artist"
+        tools:layout="@layout/fragment_artist">
+        <action
+            android:id="@+id/action_navigation_artist_to_navigation_playlist"
+            app:destination="@id/navigation_playlist" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_playlist"
+        android:name="com.example.trinhnghenhac.ui.playlist.PlaylistFragment"
+        android:label="@string/type_playlist"
+        tools:layout="@layout/fragment_playlist" />
+    <activity
+        android:id="@+id/navigation_player"
+        android:name="com.example.trinhnghenhac.ui.player.PlayerActivity"
+        android:label="@string/music_player"
+        tools:layout="@layout/fragment_player" />
+    <action
+        android:id="@+id/action_view_player"
+        app:destination="@id/navigation_player" />
+    <action
+        android:id="@+id/action_view_artist"
+        app:destination="@id/navigation_artist" />
+    <action
+        android:id="@+id/action_view_playlist"
+        app:destination="@id/navigation_playlist" />
+</navigation>

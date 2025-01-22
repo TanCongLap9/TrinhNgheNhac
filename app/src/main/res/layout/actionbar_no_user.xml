@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionbar_actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?android:attr/colorBackground"
+    android:elevation="4dp"
+    android:padding="0dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/actionbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+</androidx.appcompat.widget.Toolbar>

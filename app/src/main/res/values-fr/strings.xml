@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Music player</string>
+    <string name="title_explore">Explorer</string>
+    <string name="title_library">Bibliothèque</string>
+    <string name="info_name">Nom et prénom</string>
+    <string name="info_email">Adresse d\'email</string>
+    <string name="info_birth">Anniversaire</string>
+    <string name="info_account">Compte</string>
+    <string name="info_phone">Numéro de téléphone</string>
+    <string name="info_password">Mot de passe</string>
+    <string name="info_confirm_password">Confirmation du mot de passe</string>
+    <string name="sign_in">Registre</string>
+    <string name="sign_up">Se connecter</string>
+    <string name="register_i_agree">J\'ai accepté les <u>Termes et Conditions</u> du <b>My Company</b>.</string>
+    <string name="media_player_play">Lire</string>
+    <string name="dialog_yes">Oui</string>
+    <string name="dialog_no">Non</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Annuler</string>
+    <string name="dialog_retry">Réessayer</string>
+    <string name="dialog_ignore">Ignorer</string>
+    <string name="media_player_now_playing">En train de lecture</string>
+    <string name="media_player_pause">Pauser</string>
+    <string name="media_player_stop">Arrêter</string>
+    <string name="media_player_repeat">Répéter</string>
+    <string name="media_player_previous">Premìère</string>
+    <string name="media_player_next">Suivante</string>
+    <string name="media_player_shuffle">Randomiser</string>
+    <string name="media_player_lyrics">Paroles</string>
+    <string name="type_artist">Artiste</string>
+    <string name="type_song">Chanson</string>
+    <string name="type_playlist">Liste de lecture</string>
+    <string name="type_video">Clip musique</string>
+    <string name="search_results">Résultats de la recherche</string>
+    <string name="type_artists">Artistes</string>
+    <string name="type_songs">Chansons</string>
+    <string name="type_playlists">Listes de lecture</string>
+    <string name="type_videos">Clips musique</string>
+    <string name="music_player">Lecteur de musique</string>
+    <string name="setting_language">Langue</string>
+    <string name="setting_language_default">Système</string>
+    <string name="settings_save">Enregistrer</string>
+</resources>

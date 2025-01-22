@@ -1,0 +1,145 @@
+package com.example.trinhnghenhac;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
+import static org.junit.Assert.*;
+
+import android.database.Cursor;
+import android.provider.BaseColumns;
+
+import com.example.trinhnghenhac.api.MusicPlatformApi;
+import com.example.trinhnghenhac.api.zingmp3.ZingMp3Api;
+import com.example.trinhnghenhac.constants.MusicCategory;
+import com.example.trinhnghenhac.models.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import java.io.IOException;
+import java.util.List;
+
+@RunWith(RobolectricTestRunner.class)
+public class ZingMp3ApiTest {
+    private MusicPlatformApi zingMp3Api;
+    private TestPrintStream out;
+
+    @Before
+    public void init() {
+        zingMp3Api = ZingMp3Api.getInstance();
+        out = new TestPrintStream(ZingMp3ApiTest.class);
+    }
+
+    @Test
+    public void getPlaylist() throws IOException {
+        Playlist model = zingMp3Api.getPlaylistInfo("6BOU8CIE");
+        assertThat(model, notNullValue());
+        out.println(model);
+
+        Playlist model2 = zingMp3Api.getPlaylistInfo("6BZ66U6I");
+        assertThat(model2, notNullValue());
+        out.println(model2);
+    }
+
+    @Test
+    public void getSongInfo() throws IOException {
+        Song model = zingMp3Api.getSongInfo("ZUOFC78E");
+        assertThat(model, notNullValue());
+        out.println(model);
+
+        Song model2 = zingMp3Api.getSongInfo("Z7D7ZWZE");
+        assertThat(model2, notNullValue());
+        out.println(model2);
+    }
+
+    @Test
+    public void getMediaUrl() throws IOException {
+        String mediaUrl = zingMp3Api.getMediaUrl("ZUOFC78E");
+        assertThat(mediaUrl, notNullValue());
+        out.println(mediaUrl);
+
+        String mediaUrl2 = zingMp3Api.getMediaUrl("Z7D7ZWZE");
+        assertThat(mediaUrl2, nullValue());
+        out.println(mediaUrl2);
+    }
+
+    @Test
+    public void getPlayablesByCategory() throws IOException {
+        List<Playable> playables = zingMp3Api.getPlayablesByCategory(MusicCategory.CATEGORY_ACOUSTIC);
+        assertThat(playables, notNullValue());
+        assertThat(playables, not(empty()));
+        out.println(playables);
+
+        List<Playable> mediaUrl2 = zingMp3Api.getPlayablesByCategory(MusicCategory.CATEGORY_EDM);
+        assertThat(mediaUrl2, notNullValue());
+        assertThat(mediaUrl2, not(empty()));
+        out.println(mediaUrl2);
+    }
+
+    @Test
+    public void getArtist() throws IOException {
+        Artist model = zingMp3Api.getArtistInfo("Lam-Trieu-Minh");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getVideoInfo() throws IOException {
+        Video model = zingMp3Api.getVideoInfo("ZW79ZBE8");
+        assertThat(model, notNullValue());
+        out.println(model);
+    }
+
+    @Test
+    public void getLyrics() throws IOException {
+        Lyrics lyrics = zingMp3Api.getLyrics("ZUOFC78E");
+        assertThat(lyrics, notNullValue());
+        out.println(lyrics);
+
+        Lyrics lyrics2 = zingMp3Api.getLyrics("ZW9CB7EF");
+        assertThat(lyrics2, notNullValue());
+        out.println(lyrics2);
+
+
+        Lyrics lyrics3 = zingMp3Api.getLyrics("Z7U0ACDW");
+        assertThat(lyrics3, notNullValue());
+        out.println(lyrics3);
+
+        Lyrics lyrics4 = zingMp3Api.getLyrics("ZUBU066O");
+        assertThat(lyrics4, nullValue());
+        out.println(lyrics4);
+    }
+
+    @Test
+    public void getSearchHints() throws IOException {
+        Cursor c = zingMp3Api.getSearchHints("sơn tùng");
+        assertThat(c, notNullValue());
+        assertThat(c.getColumnCount(), equalTo(2));
+        assertThat(c.getColumnName(0), equalTo(BaseColumns._ID));
+        assertThat(c.getColumnName(1), equalTo(MusicPlatformApi.SEARCH_COLUMN_NAME));
+        for (int i = 0; i < c.getCount(); i++) {
+            c.moveToNext();
+            assertThat(c.getInt(0), equalTo(i));
+            assertThat(c.getString(1), notNullValue());
+        }
+        out.println(c);
+        c.close();
+    }
+
+    @Test
+    public void getSearchResults() throws IOException {
+        SearchResults search = zingMp3Api.getSearchResults("sơn tùng");
+        assertThat(search, notNullValue());
+        assertThat(search.getArtists(), not(empty()));
+        assertThat(search.getArtists(), not(hasItem(nullValue())));
+        assertThat(search.getPlaylists(), not(empty()));
+        assertThat(search.getPlaylists(), not(hasItem(nullValue())));
+        assertThat(search.getSongs(), not(empty()));
+        assertThat(search.getSongs(), not(hasItem(nullValue())));
+        assertThat(search.getVideos(), not(empty()));
+        assertThat(search.getVideos(), not(hasItem(nullValue())));
+        assertThat(search.getOrder().length, equalTo(4));
+        out.println(search);
+    }
+}
