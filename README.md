@@ -1,2 +1,4 @@
-# Trình nghe nhạc
-App trình nghe nhạc đa nền tảng.
+# Trình nghe nhạc - Kho âm nhạc tổng hợp
+
+## Thư viện ảnh
+Xem [screenshots](./screenshots)
